@@ -22,7 +22,21 @@ class FileBrowseWidget(Input):
     input_type = 'text'
     
     class Media:
-        js = (os.path.join(URL_FILEBROWSER_MEDIA, 'js/AddFileBrowser.js'), )
+        if FANCY_BOX_ENABLED_ALREADY:
+            js = (
+                os.path.join(URL_FILEBROWSER_MEDIA, 'js/AddFileBrowser.js'),
+            )
+        else:
+            js = (
+                os.path.join(URL_FILEBROWSER_MEDIA, 'js/jquery.min.js'),
+                os.path.join(URL_FILEBROWSER_MEDIA, 'js/fancybox/jquery.fancybox-1.3.1.pack.js'),
+                os.path.join(URL_FILEBROWSER_MEDIA, 'js/AddFileBrowser.js'), 
+            )
+            css = {
+                'all': [
+                    os.path.join(URL_FILEBROWSER_MEDIA, 'js/fancybox/jquery.fancybox-1.3.1.css'),
+                ]
+            }
     
     def __init__(self, attrs=None):
         self.directory = attrs.get('directory', '')

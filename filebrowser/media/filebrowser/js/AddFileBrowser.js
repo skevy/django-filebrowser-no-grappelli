@@ -1,5 +1,6 @@
 var FileBrowser = {
     // this is set automatically
+    filebrowser_field_input_id: '',
     admin_media_prefix: '',
     // change this
     thumb_prefix: 'thumb_',
@@ -20,12 +21,18 @@ var FileBrowser = {
     // show FileBrowser
     show: function(id, href, close_func) {
         // var id2=String(id).split(".").join("___");
-        var id2=String(id).replace(/\-/g,"____").split(".").join("___");
-        FBWindow = window.open(href, String(id2), 'height=600,width=960,resizable=yes,scrollbars=yes');
-        FBWindow.focus();
-        if (close_func) {
-            FBWindow.onbeforeunload = close_func;
-        }
+        FileBrowser.filebrowser_field_input_id=String(id).replace(/\-/g,"____").split(".").join("___");
+        //FBWindow = window.open(href, String(id2), 'height=600,width=960,resizable=yes,scrollbars=yes');
+        //FBWindow.focus();
+        $.fancybox({
+             'type':    'iframe',
+             'href':    href,
+             'width':   960,
+             'height':  600,
+        });
+        // if (close_func) {
+        //             FBWindow.onbeforeunload = close_func;
+        //         }
     }
 }
 

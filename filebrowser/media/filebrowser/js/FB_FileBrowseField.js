@@ -1,14 +1,14 @@
 function FileSubmit(FileURL, ThumbURL, FileType) {
     
     // var input_id=window.name.split("___").join(".");
-    var input_id=window.name.replace(/____/g,'-').split("___").join(".");
+    var input_id=parent.FileBrowser.filebrowser_field_input_id.replace(/____/g,'-').split("___").join(".");
     var preview_id = 'image_' + input_id;
     var link_id = 'link_' + input_id;
     var help_id = 'help_' + input_id;
-    input = opener.document.getElementById(input_id);
-    preview = opener.document.getElementById(preview_id);
-    link = opener.document.getElementById(link_id);
-    help = opener.document.getElementById(help_id);
+    input = parent.document.getElementById(input_id);
+    preview = parent.document.getElementById(preview_id);
+    link = parent.document.getElementById(link_id);
+    help = parent.document.getElementById(help_id);
     // set new value for input field
     input.value = FileURL;
     
@@ -27,6 +27,6 @@ function FileSubmit(FileURL, ThumbURL, FileType) {
         preview.setAttribute("src", "");
         help.setAttribute("style", "display:none");
     }
-    this.close();
+    parent.$.fancybox.close();
 }
 

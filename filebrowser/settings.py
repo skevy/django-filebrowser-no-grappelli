@@ -111,6 +111,8 @@ DEFAULT_SORTING_ORDER = getattr(settings, "FILEBROWSER_DEFAULT_SORTING_ORDER", "
 # regex to clean dir names before creation
 FOLDER_REGEX = getattr(settings, "FILEBROWSER_FOLDER_REGEX", r'^[\sa-zA-Z0-9._/-]+$')
 
+FANCY_BOX_ENABLED_ALREADY = getattr(settings, "FILEBROWSER_FANCY_BOX_ENABLED_ALREADY", False)
+
 # EXTRA TRANSLATION STRINGS
 # The following strings are not availabe within views or templates
 _('Folder')
